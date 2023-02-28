@@ -1,16 +1,20 @@
 :root {
     --body-bg: #fafafb;
     --box-bg: #ffffff;
-    --main-color: #0652dd;
+    --main-color: #DB504A;
+    --logo-color: #FF0000;
     --text-color: #455560;
     --text-second-color: #72849ab3;
     --border-color: #e9e9e9;
     --menu-item-active-bg: rgba(62, 121, 247, 0.1);
-
+    --red: #DB504A;
+    --blue: #3C91E6;
+    --light-blue: #CFE8FF;
+	--grey: #eee;
     --box-border-radius: 15px;
     --sidebar-size: 300px;
     --sidebar-logo-img-size: 45px;
-    --sidebar-logo-size: 80px;
+    --sidebar-logo-size: 60px;
     --profile-image-size: 45px;
     --main-header-height: 80px;
     --shadow: 0 1px 4px -1px rgb(0 0 0 / 15%);
@@ -62,6 +66,7 @@ a {
     height: var(--sidebar-logo-size);
     position: relative;
     padding: 10px 5px;
+    background-color: var(--logo-color);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -69,7 +74,7 @@ a {
 
 .sidebar-logo img {
     height: var(--sidebar-logo-img-size);
-    max-width: 100%;
+    max-width: 500px;
 }
 
 .sidebar-close {
@@ -112,6 +117,8 @@ a {
     padding: 0.5rem;
     border-radius: 0.25rem;
 }
+
+
 
 .btn i {
     font-size: 1.25rem;
@@ -264,12 +271,17 @@ a {
 
 .main-header {
     height: var(--main-header-height);
+    
     display: flex;
-    align-items: center;
-    padding: 20px;
+    flex-direction: row;
+    align-items: end;
+    justify-content: space-between;
+    
     background-color: var(--box-bg);
     box-shadow: var(--shadow);
 }
+
+
 
 .dark .main-header {
     border-bottom: 2px solid var(--border-color);
@@ -279,13 +291,134 @@ a {
     display: none;
 }
 
-.main-title {
-    text-transform: capitalize;
-    font-size: 1.5rem;
+nav {
+	height: 56px;
+	background: var(--light);
+	padding: 0 24px;
+	display: flex;
+	align-items: center;
+	grid-gap: 24px;
+	font-family: var(--lato);
+	position: sticky;
+	top: 0;
+	left: 0;
+	
+}
+nav::before {
+	content: '';
+	position: absolute;
+	width: 40px;
+	height: 40px;
+	bottom: -40px;
+	left: 0;
+	border-radius: 50%;
+	box-shadow: -20px -20px 0 var(--light);
+}
+nav a {
+	color: var(--dark);
+}
+nav .bx.bx-menu {
+	cursor: pointer;
+	color: var(--dark);
+}
+nav .nav-link {
+	font-size: 16px;
+	transition: .3s ease;
+}
+nav .nav-link:hover {
+	color: var(--main-color);
+}
+nav form {
+	max-width: 400px;
+	width: 100%;
+	margin-right: auto;
+}
+nav form .form-input {
+	display: flex;
+	align-items: center;
+	height: 36px;
+}
+nav form .form-input input {
+	flex-grow: 1;
+	padding: 0 16px;
+	height: 100%;
+	border: none;
+	background: var(--grey);
+	border-radius: 36px 0 0 36px;
+	outline: none;
+	width: 100%;
+	color: var(--dark);
+}
+nav form .form-input button {
+	width: 36px;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: var(--main-color);
+	color: var(--light);
+	font-size: 18px;
+	border: none;
+	outline: none;
+	border-radius: 0 36px 36px 0;
+	cursor: pointer;
+}
+nav .notification {
+	font-size: 20px;
+	position: relative;
+}
+nav .notification .num {
+	position: absolute;
+	top: -6px;
+	right: -6px;
+	width: 20px;
+	height: 20px;
+	border-radius: 50%;
+	border: 2px solid var(--light);
+	background: var(--main-color);
+	color: var(--light);
+	font-weight: 700;
+	font-size: 12px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+nav .profile img {
+	width: 36px;
+	height: 36px;
+	object-fit: cover;
+	border-radius: 50%;
+}
+nav .switch-mode {
+	display: block;
+	min-width: 50px;
+	height: 25px;
+	border-radius: 25px;
+	background: var(--grey);
+	cursor: pointer;
+	position: relative;
+}
+nav .switch-mode::before {
+	content: '';
+	position: absolute;
+	top: 2px;
+	left: 2px;
+	bottom: 2px;
+	width: calc(25px - 4px);
+	background: var(--main-color);
+	border-radius: 50%;
+	transition: all .3s ease;
+}
+nav #switch-mode:checked + .switch-mode::before {
+	left: calc(100% - (25px - 4px) - 2px);
 }
 
-.main-content {
-    padding: 20px;
+nav .btn-outline{
+    visibility: hidden;
+}
+
+.main-content{
+    padding: 10px 0 10px 10px;
 }
 
 .box {
@@ -474,6 +607,18 @@ table td {
         padding-left: 0;
     }
 
+    .main-header {
+        height: var(--main-header-height);
+        display: flex;
+        flex-direction: row;
+        align-items: end;
+        justify-content: space-between;
+        padding: 20px;
+        background-color: var(--box-bg);
+        box-shadow: var(--shadow);
+        
+    }
+
     .mobile-toggle,
     .sidebar-close {
         display: grid;
@@ -481,6 +626,9 @@ table td {
         font-size: 2rem;
         margin-right: 30px;
         cursor: pointer;
+    }
+    nav .btn-outline{
+        visibility: visible;
     }
 
     .sidebar-close {
