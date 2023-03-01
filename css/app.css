@@ -244,7 +244,7 @@ a {
     height: var(--height);
     width: var(--width);
     border-radius: calc(var(--height) / 2);
-    background-color: #f5f6fa;
+    background-color: var(--border-color);
     position: relative;
 }
 
