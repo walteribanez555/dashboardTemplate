@@ -274,7 +274,7 @@ a {
     
     display: flex;
     flex-direction: row;
-    align-items: end;
+    align-items: center;
     justify-content: space-between;
     
     background-color: var(--box-bg);
@@ -607,17 +607,7 @@ table td {
         padding-left: 0;
     }
 
-    .main-header {
-        height: var(--main-header-height);
-        display: flex;
-        flex-direction: row;
-        align-items: end;
-        justify-content: space-between;
-        padding: 20px;
-        background-color: var(--box-bg);
-        box-shadow: var(--shadow);
-        
-    }
+    
 
     .mobile-toggle,
     .sidebar-close {
